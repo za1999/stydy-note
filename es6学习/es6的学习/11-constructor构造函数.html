@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--_proto_和prototype都有一个constructor属性，称它为构造函数，因为它指向构造函数本身-->
+		<!--构造函数里的原型对象即prototype也有一个_proto_，它指向Object的prototype，即Object.prototype,最后Object.prototype._proto_为空-->
+		<script type="text/javascript">
+						function star(uname,age){
+				this.uname = uname;
+				this.age = age;
+			}
+			//存多个方法,但这样会覆盖prototype变成一个对象，也会失去constructor
+			star.prototype = {
+				//但是再加个constructor并且指向你的构造函数就可以了
+				constructor:star,
+				sing:function(){},
+				hang:function(){}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" class="uname" placeholder="输入用户名，臭弟弟"/>
+	</body>
+	<script>
+		var reg = /^[a-zA-Z0-9_-]{6,16}$/
+		//找到uname这个类
+		var uname = document.querySelector('.uname')
+		//检测它失去焦点
+		uname.onblur = function(){
+			//检测里面的是否符合标准
+			if(reg.test(this.value)){
+				alert("正确")
+			}else{
+				alert("失败")
+			}
+		}
+	</script>
+</html>

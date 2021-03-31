@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>点击</button>
+		<script>
+			var that;
+			//方法里的this是谁调用它，它就指向谁
+			class Father{
+				constructor(x,y){
+					that  = this;
+					this.x =x;
+					this.y =y;
+					//构造里面这样调用自己的函数
+					//this.sum();
+					
+					
+					//获取button
+					this.btn = document.querySelector('button');
+					//添加点击事件
+					this.btn.onclick  =  this.sum;
+				}
+				sum(){
+					console.log(that.x);//that里面是constructor里面的this
+				}
+			}
+			var a = new Father('刘德华');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+	<div id="app">
+	<!--這裏a差不多是參數，不過要聲明一下-->
+	<alert a="八種至八"></alert>
+	<a href="">whh</a>
+	</div>
+	<script>
+	
+	Vue.component('alert',{
+	template:'<button @click="onclick">單走魚尾紋</button>',
+	//聲明
+	props:['a']
+	,
+	methods:{
+	onclick:function(){
+	alert(this.a);
+	}
+	}
+	});
+	new Vue({
+	el:'#app'
+	})
+	</script>
+	</body>
+</html>

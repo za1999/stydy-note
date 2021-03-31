@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		<mycom1></mycom1>
+		</div>
+		<template id="sa">
+			<div >
+				<input type="button" value="+1" @click="increment"/>
+				<h3>{{count}}</h3>
+			</div>
+			
+		</template>
+		<script>
+			//组件的data必须是方法，而且要返回对象
+			Vue.component('mycom1',{
+				template:'#sa',
+				data:function(){
+					return {
+						msg:'这是组件中的私有数据',
+						count:0
+					}
+				},
+				methods:{
+					increment(){
+						this.count+=1;
+					}
+				}
+			})
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+	
+	          }
+          });
+		</script>
+	</body>
+</html>

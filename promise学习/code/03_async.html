@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        async function test(){
+            // 如果这里返回值为非promise对象，返回的promise对象值就为这个
+            //如果返回的是一个promise对象，那么这个返回的对象状态影响async返回的promise对象的状态，值为返回的promise对象回调函数的参数
+
+//如果没有返回而是抛出异常那么async函数返回的promise为reject，值为你抛出的值
+            return 999
+        }
+        let res = test()
+         // f返回值为一个promise对象
+        console.log(res)
+       
+    </script>
+</body>
+</html>

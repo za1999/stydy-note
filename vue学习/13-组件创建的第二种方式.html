@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		<mycom3></mycom3>
+		</div>
+		<template id="tmp1">
+			<div>
+				<h1>我是你哥哥</h1>
+			</div>
+			
+		</template>
+		<script>
+			Vue.component('mycom3',{
+				template:'#tmp1'
+			})
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	          }
+          });
+		</script>
+	</body>
+</html>

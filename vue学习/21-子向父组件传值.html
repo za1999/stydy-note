@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app" >
+		<ac v-on:func = "show"></ac>
+		</div>
+		<template id="tmp1">
+			<div>
+				<h1>这是子组件</h1>
+				<input type="button" value="这是子组件中的按钮，触发父组件传递的func方法" @click="myclick"/>
+			</div>
+		</template>
+		<script>
+			var ac = {
+				data(){
+					return {
+						son:{name:'小偷儿子',age:6}
+					}
+				},
+				template:'#tmp1',
+				methods:{
+					myclick(){
+						//当点击子组件如何拿到父组件传递的fnc方法，如何调用
+						//emit英文原意触发，调用，发射的意思
+						//从第二个参数开始可以传参数
+						this.$emit('func',this.son)
+					}
+				}
+			}
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		datamsg:null
+	        },
+	         components:{
+	         	ac
+	         },
+	         methods :{
+	         	show(data){
+	         		console.log('调用了父元素的show方法:----'+data);
+	         		this.datamsg = data;
+	         		console.log(this.datamsg)
+	         	}
+	         }
+          });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="lib/vue-router-3.0.1.js" ></script>
+		<style>
+			.header{
+				background: orange;
+				height: 80px;
+				text-align: center;
+				line-height: 80px;
+			
+			}
+			h1{
+			margin: 0;
+				padding: 0;
+			}
+			.container{
+				display: flex;
+				height: 600px;
+			
+			}
+			.left{
+				background: yellow;
+				flex: 2;
+			}
+			.main{
+				background: red;
+				flex: 8;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--类名直接加router-view也是可以的-->
+		<router-view></router-view>
+		<div class="container">
+				<router-view name="left"></router-view>
+		<router-view name="main"></router-view>
+		</div>
+	
+		</div>
+		
+		<script>
+			var header = {
+				template:'<h1 class="header">header头部区域</h1>'
+			}
+			var leftbox = {
+				template:'<h1 class="left">left侧边区域</h1>'
+			}
+			var mainbox = {
+				template:'<h1 class="main">mainbox主体区域</h1>'
+			}
+			var rou = new VueRouter({
+				routes:[
+				//可以在一个路由里写很多的组件
+				{path:'/',components:{
+					'default':header,
+					'left':leftbox,
+					'main':mainbox
+				}}
+//				{path:'/',component:header},
+//				{path:'/left',component:leftbox},
+//				{path:'/main',component:mainbox}
+				]
+			})
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	         },
+	         router:rou
+          });
+		</script>
+	</body>
+</html>

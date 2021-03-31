@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+		<!--1.安装路由模块-->
+		<script type="text/javascript" src="lib/vue-router-3.0.1.js" ></script>
+		<!--因为当某个链接被选中时，router-link会增加class，这时候可以在上面加样式-->
+		<style>
+			/*这个类名可以改的，在创建的VueRouter中写
+			 linkActiveClass:'要改的名字'
+			 * */
+			.router-link-active{
+				color: red;
+				font-weight: 800;
+				font-style: italic;
+				font-size: 80px;
+				text-decoration: underline;
+			}
+			
+			.v-enter,.v-leave-to{
+				opacity: 0;
+				transform: translateX(140px);
+			}
+			
+			.v-enter-active,
+			.v-leave-active{
+				transition: all 0.5s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--点a链接既可以换组件了-->
+			<!--<a href="#/login">登录</a>
+			<a href="#/register">注册</a>-->
+			
+			<!--还可以这样，router-link默认渲染为a标签，用tag可以改变，下面我用tag改为span-->
+			<router-link to="/login" tag="span">登录</router-link>
+			<router-link to="/register">注册</router-link>
+			
+			<!--这是Vue-router提供的元素，专门做占位符，展示路由规则匹配到的组件-->
+			<!--给这老哥来点动画-->
+			<transition  mode="out-in">
+				<router-view></router-view>
+			</transition>
+		
+		</div>
+		
+		<script>
+			//组件模板对象
+			var login = {
+				template:'<h1>登录组件</h1>'
+			}
+				var register = {
+				template:'<h1>注册组件</h1>'
+			}
+			//2.路由是不同组件切换，创建一个路由对象，导入包后，在window全局对象中，就有了一个路由的构造函数，叫VueRouter
+			//这就创建了一个路由对象，在new路由对象时，可以为构造函数传递一个配置对象
+			var rou = new VueRouter({
+				//route  //这个配置对象中的route表示路由匹配规则的意思，可以有很多个，去r加s
+				routes:[
+				//每个路由规则都是一个对象，对象身上有两个必须属性
+				//属性1，path，表示监听哪个路由链接地址；
+				//属性2是compoments，如果路由是前开你匹配到的path，则展示compoments属性对应的那个组件
+				//compoment的值必须是一个组件模板对象，不能是组件的引用名称
+				{path:'/login',component:login},
+				{path:'/register',component:register},
+				
+				
+				//这里设置一个默认的
+				//{path:'/',component:login}
+				//也可以重定向，下面意思是如果是/就改为/login,建议使用这种，因为上面的可能不是一个组件，因为多注册了一个
+				{path:'/',redirect:'/login'}
+				]
+			})
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	         },
+	      //先router，然后你创建对象的名字,将路由注册到vm实例上，监听url地址变化，然后展示对应的组件
+	     router:rou
+          });
+		</script>
+	</body>
+</html>

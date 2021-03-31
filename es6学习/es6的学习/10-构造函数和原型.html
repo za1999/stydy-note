@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--普通函数是每个对象都有一个，都需要开辟内存空间-->
+	<!--构造函数通过原型分配的函数是所有对象所共享的-->
+	<!--每个构造函数都有一个prototype属性，指向一个对象。prototype就是一个对象，这个对象的所有属性和方法都会被构造函数所拥有-->
+	<!---->
+	<body>
+				<script>
+			function star(uname,age){
+				this.uname = uname;
+				this.age = age;
+//				this.sing  =  function(){
+//					console.log('嘎你码的 ');
+//				}
+			}
+			star.prototype.sing=function(){
+				console.log('我是共享方法')
+			}
+			//对象都有一个属性_proto_指向构造函数的prototype原型对象，对象可以用prototype就是因为对象有_proto_原型，其实两个是等价的_proto_和prototype
+			var ldh  =  new star('刘德华',20);
+			//console.dir可以显示一个对象所有的属性和方法。
+			console.dir(star)
+			console.log(ldh.sing())
+		</script>
+	</body>
+</html>

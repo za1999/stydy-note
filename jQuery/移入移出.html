@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+		<script>
+			//mouseover和mouseout子元素也会触发
+			//mouseenter和mouseleave就不会
+//			$(function(){
+//				$(".father").mouseover(function(){
+//					console.log("金");
+//				});
+//				$(".father").mouseout(function(){
+//					console.log("chu");
+//				});
+//			});
+
+//
+//	$(function(){
+//				$(".father").mouseenter(function(){
+//					console.log("金");
+//				});
+//				$(".father").mouseleave(function(){
+//					console.log("chu");
+//				});
+//			});
+			
+			//hover可以代替enter和leave两个,这是两个参数的，如果只有一个就是移入移出都响应这个
+		$(function(){
+			$(".father").hover(function(){console.log("金");},function(){console.log("chu");});
+		});
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p v-cloak>{{msg}}</p>
+			<h4 v-text='a'></h4>
+			<div v-html="b"></div>
+			<input type="button" value="按钮" :title="c+'真好'" v-on:click="sk">
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					msg:'123',
+					a:"456",
+					b:"<h1>哈哈哈哈</h1>",
+					c:"按钮"
+				},
+				methods:{
+					sk:function(){
+						alert("大家好啊");
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>

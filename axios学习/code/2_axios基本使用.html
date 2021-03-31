@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>点击我发送get请求</button>
+        <button>点击我发送post请求</button>
+        <button>点击我发送put请求</button>
+        <button>点击我发送delete请求</button>
+    </div>
+    <!-- cdn方式引入axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script>
+        const btns = document.querySelectorAll('button')
+        console.log(btns)
+        btns[0].onclick = function(){
+            console.log("第一个")
+            // 用axios发送Ajax请求
+            // 因为axios返回的是一个promise对象，所以我们用.then来接受
+            axios({
+                // 请求类型
+                method:'get',
+                // url，这里指向json里面posts下面id为2的文章
+                url:' http://localhost:3000/posts/2'
+
+            }).then((value)=>{
+                console.log(value)
+            },(reason)=>{
+
+            })
+
+
+        }
+        btns[1].onclick = function(){
+            console.log("第二个")
+            axios({
+                // 请求类型
+                method:'post',
+                // url，这里指向json里面posts下面id为2的文章
+                url:' http://localhost:3000/posts',
+                // 请求参数
+                data:{
+                    title:"home二",
+                    author:"第二个张傲"
+                }
+
+            }).then((value)=>{
+                console.log(value)
+            },(reason)=>{
+
+            })
+        }
+        btns[2].onclick = function(){
+            console.log("第三个")
+        }
+        btns[3].onclick = function(){
+            console.log("第四个")
+        }
+    </script>
+</body>
+</html>

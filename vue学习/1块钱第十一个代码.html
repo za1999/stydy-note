@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/template" id="temp">
+			<div>{{ms}}<p>好玩</p></div>
+		</script>
+	</head>
+	<body>
+		<!--可以在Vue对象中使用自定义组件-->
+		<div id="app" >
+      <p>{{message}}</p>
+   <myh></myh>
+   <myt></myt>
+		</div>
+		<script type="text/javascript">
+
+			var app = new Vue({
+				el:'#app',
+				data(){
+					return{
+						message:"组件之间的嵌套"
+						}
+				},components:{
+					'myh':{
+						template:'<div>我是头部内容</div>'
+					},
+					'myt':{
+						template:'<h3>我是标题</h3>'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

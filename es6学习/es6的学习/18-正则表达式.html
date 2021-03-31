@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//正则表达式的使用
+		
+		//1.通过RegExp对象的构造函数创建
+		var reg = new RegExp(/123/);
+		//console.log(reg)
+		//快捷字面量创建正则表达式
+		var re = /123/;
+		//test()方法可以检测我们的正则表达式是否符合该规则，返回true挥着false
+		//括号里面写我们要测试的文本,就是用户输入的那些
+		re.test(/123/)
+		//console.log(re.test("a3"))这个就不符合
+	</script>
+</html>

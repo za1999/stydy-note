@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<script>
+			$(function(){
+				$("button").click(function(){
+					alert("?");
+				});
+				$("button").mouseenter(function(){
+					alert("鼠标进来了");
+				});
+				//用off();可以移除函数，可以不传参数，也可以多个参数,$("button").off();
+				//没有就是全部删除
+//				$("button").off();
+//传就是删除那个
+//两个参数会删除制定类型的指定事件，比如click里面有个叫a的函数，就可以指定去除了
+$("button").off("mouseenter");
+			});
+		</script>
+	</head>
+	<body>
+		<button>我是按钮</button>
+	</body>
+</html>

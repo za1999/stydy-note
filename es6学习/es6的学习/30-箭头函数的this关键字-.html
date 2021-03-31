@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>箭头函数不绑定this关键字(没有自己的this关键字)，箭头函数里面的this指向的是函数定义位置的上下文this</h1>
+		<h1>如果在箭头函数中使用this，关键字将指向箭头函数定义位置中的this</h1>
+	</body>
+	<script>
+		const obj = {name:'张傲'}
+		function fn(){
+			console.log(this);
+			return ()=>{
+				console.log(this)
+			}
+		}
+		//把fn的this指向obj
+		var res= fn.call(obj);
+		res()
+	</script>
+</html>

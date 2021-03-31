@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//父构造函数
+			function Father(uname,age){
+				//父构造函数的this指向父构造函数的对象实例
+				this.uname = uname;
+				this.age = age;
+			}
+			Father.prototype.money = function(){
+				console.log("?????");
+			}
+			//子构造函数
+			function Son(uname,age){
+				//子构造函数的this指向子构造函数的对象实例
+				//调用Father并且把它的this指向了son,在father里面就变成了Son.uname = uname,帮Son创建了属性,同时自己也有属性
+				Father.call(this,uname,age);
+			}
+			//创建一个实例对象赋值给Son构造函数的prototype
+			Son.prototype = new Father();
+			//再把Son指回自己
+			Son.prototype.constructor = Son;
+			var son  = new Son('刘德华','18');
+			
+			var fa = new Father('张学友',20);
+           console.log(son.money())
+		</script>
+	</body>
+</html>

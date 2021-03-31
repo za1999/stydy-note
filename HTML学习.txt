@@ -1,0 +1,56 @@
+
+颜色
+       rgb(红,绿蓝)每个颜色取值0到255
+       rgba（红，绿，蓝，透明度）透明度取值0到1，1为正常
+字体
+	font-size 字体大小//如果使用百分比，%100为父元素大小，其它也会受父元素影响
+	font-family 字体
+	font-weight 字体加粗//100到900,400为默认值，也可以用normal（默认）bold（粗），bolder（更粗），lighter（更细）
+	font-style 字体样式
+	font-variant小型大写字母显示文本
+背景
+	background-repeat:repeat; 重复铺满
+		repeat-x      x重复
+		repeat-y     y重复
+		no-repeat  不重复
+		背景位置background-position:left center;左中（还可以用像素什么的，百分比）第一个x轴，第二个y轴
+css文本
+	text-align 横向排列
+	line-height文本行高//受字体大小影响，可用px，父元素百分比
+	text-indent首行缩进
+	letter-spacing字符间距
+	word-spacing单词间距
+	direction 文本方向       ltr左到右     rtl右到左 
+	text-transform文本大小写    capitalize每个单词大写开头    uppercase仅有大写字母      lowercase仅有小写
+边框
+	border-style 边框风格 可以定位某方向的边框，如border-top-style: ； 只有上面有边框
+	border-width 边框宽度
+·	border-color 边框颜色    也可以控制上下左右不一样颜色 按上下左右
+列表
+	list-style-type:none;可以取消有序，无序列表的点
+	控制左边的东西，可以改变有序无序  list-style-type:
+	list-style-position  标记的位置
+	list-style-image 设置图像列表标记
+	list-style 简写方式
+div和span及盒模型
+	盒模型：margin border padding 元素 （从外到内排序）
+	margin(外边境) 还有margin-top等
+	margin:0 auto;可以让div居中
+定位
+	postion:relative 正常定位
+		absolute 根据父元素定位
+		fixed 根据浏览器窗口进行定位
+		static 没有定位
+		z-index:数字;数字越大覆盖在越上面
+显示
+		z-index:数字;数字越大覆盖在越上面
+		display:none 层不显示；
+			block 内联变块级，在元素后面换行，显示下一个块元素
+			inline块级变内联，多个块显示在一行内
+浮动
+		float 浮动
+		clear 清除浮动
+溢出处理overflow
+		hidden 隐藏超出层大小的内容
+		scroll 无论内容是否超出层大小都添加滚动条
+		auto超出自动添加滚动条

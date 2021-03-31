@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>模板字符串用``包起来</h1>
+		<script>
+			let name = `这是一个模板字符串`;
+			let sayHello = `Hello,我的名字叫${name}`
+			console.log(name)
+			console.log(sayHello)
+			
+			
+			//模板字符串还可以调用函数！
+			const gua = function(){
+				return '我是函数的返回值┗|｀O′|┛ 嗷~~'
+			}
+			let ao = `草丛里钻出一个光头,没想到竟然是!!!!!!!!!!!!!!!!!!!!!!!!!!!--------${gua()}`
+			console.log(ao)
+		</script>
+	</body>
+</html>

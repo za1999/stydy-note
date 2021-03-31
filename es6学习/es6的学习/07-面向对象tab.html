@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.tab-box{
+				width: 1269px;
+				height: 563px;
+				border: 1px solid black;
+				margin: 100px auto;
+			}
+			.box-head{
+				height: 75px;
+				width: 100%;
+				border-bottom: 1px solid black;
+				position: relative;
+			}
+			.jia{
+				height: 32px;
+				width: 32px;
+				border: 1px solid black;
+				top: 20px;
+				position: absolute;
+				right: 10px;
+				text-align: center;
+				line-height: 32px;
+			}
+			ul{
+				display: flex;
+				height: 100%;
+				list-style: none;
+			}
+			ul li{
+				height: 100%;
+				width: 140px;
+				text-align: center;
+				line-height: 75px;
+				border-right:1px solid firebrick ;
+				position: relative;
+			}
+			ul li span{
+				position: absolute;
+				top: -44px;
+				right: 0;
+			}
+			.bottom{
+				height: 490px;
+				background: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 style="text-align: center;">JS面向对象 动态添加标签页</h1>
+		<div class="tab-box">
+			<div class="box-head">
+				<ul>
+					<li>1<span>x</span></li>
+					<li>2<span>x</span></li>
+					<li>3<span>x</span></li>
+				</ul>
+				<div class="jia">+</div>
+			</div>
+			<div class="bottom">
+				
+			</div>
+		</div>
+		<script>
+			class Tab{
+				constructor(id){
+                //获取元素
+                this.main = document.querySelector(id);
+                this.lis = this.main.querySelectorAll('li');
+                this.sec = this.main.querySelectorAll('li');
+				}
+				//切换功能
+				toggle(){
+					
+				}
+				//添加功能
+				add(){
+					
+				}
+				//删除功能
+				remove(){
+					
+				}
+				//修改功能
+				edit(){
+					
+				}
+			}
+			new Tab('.tab-box');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            list-style: none;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .pageBox{
+            text-align: center;
+        }
+        .pageBtns{
+            display: inline-block;
+            height: 40px;
+            margin: 0 auto;
+        }
+        .btns{
+            display: flex;
+            justify-content: space-around;
+        }
+        .btn{
+            width: 36px;
+            height: 36px;
+            text-align: center;
+            line-height: 36px;
+            background-color: rgb(243,244,248);
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+            color: rgb(145,157,169);
+        }
+        .btnpage:hover{
+            background-color: rgb(5,90,236);
+            color: white;
+        }
+        .btn img{
+            width: 10px;
+            height: 12px;
+        }
+        .last img{
+            transform:rotate(180deg);
+        }
+        /* 跳转框样式 */
+        .jumpbox{
+            height: 36px;
+            width: 60px;
+            position: relative;
+            top: -2px;
+            padding-left: 4px;
+            outline: none;
+            border: 1px solid rgb(232,234,237);
+            border-radius: 4px;
+        }
+        .pagejump{
+            height: 36px;
+            line-height: 36px;
+            color: rgb(162,173,183);
+        }
+        .pageother{
+            line-height: 25px;
+        }
+    </style>
+</head>
+<body>
+        <div class="pageBox">
+                <div class="pageBtns">
+                    <ul class="btns">
+                        <li class="btn last">
+                            <img src="./img/right.png" alt="">
+                        </li>
+                        <li class="btn btnpage">1</li>
+                        <li class="btn btnpage">2</li>
+                        <li class="btn btnpage">3</li>
+                        <li class="btn pageother">...</li>
+                        <li class="btn next">
+                            <img src="./img/right.png" alt="">
+                        </li>
+                        <li class="pagejump">
+                            <span>前往 </span><input type="number" class="jumpbox"><span> 页</span>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+</body>
+</html
+>

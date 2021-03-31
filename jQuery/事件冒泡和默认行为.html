@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--什么是事件冒泡
+			1.儿子响应事件时父亲也会响应，事件冒泡，事件从下级往上级传递
+		如何阻止事件冒泡
+		2.只需要在子元素回调函数里面加return false;就可以了
+		什么是默认行为
+		3.比如点击a标签，自动跳转到链接里面，但我们并么有设置事件，这叫默认行为，还有表单提交
+		按钮跳转
+		如何阻止默认行为
+		4.在那个回调函数里面加return false;
+		--> 
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".son").click(function(){
+					alert("son");
+					return false;
+				});
+				$(".father").click(function(){
+					alert("father");
+				});
+				$('a').click(function(){
+					alert("点击了a标签");
+					return false;
+				});
+			});
+		</script>
+		<style type="text/css">
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">
+				
+			</div>
+		</div>
+		<a href="http://www.baidu.com">我是百度</a>
+		<form action="http://taobao.com" method="post">
+			<input type="text" name="" id="" value="" />
+			<input type="submit" name="" id="" value="提交" />
+		</form>
+	</body>
+</html>

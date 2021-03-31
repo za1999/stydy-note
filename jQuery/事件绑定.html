@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			//jquery里面有两种事件绑定方法，可以添加多事件，不会覆盖，不同类型也可以
+//			1.evnentName(fn);
+//			2.on(eventName,fn);
+//第一种快捷，但有些没有。第二种所有事件都有
+			$(function(){
+//				第一种
+//			$("button").click(function(){
+//				alert("ds");
+//			});
+
+
+					//第二种,先是什么响应，然后是函数
+					$("button").on("click",function(){
+						alert("da");
+					});
+	});
+
+			
+			
+		</script>
+	</head>
+	<body>
+		<button>我是按钮</button>
+	</body>
+</html>

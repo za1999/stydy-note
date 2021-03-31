@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			class Father{
+				constructor(x,y){
+					this.x = x;
+					this.y = y;
+				}
+				money(){
+					console.log(100);
+				}
+				sum(){
+					console.log(this.x+this.y)
+				}
+			}
+			//继承了就可以用父元素的属性和方法
+			//super关键字用于访问和调用对象父类上的函数.可以调用父类的构造函数和普通函数
+			class Son extends Father{
+						constructor(x,y){
+							//调用了父类的构造函数
+                               super(x,y);
+				}
+			}
+			var son = new Son(1,2);
+			son.money();
+			son.sum();
+		</script>
+	</body>
+</html>

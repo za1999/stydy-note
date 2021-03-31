@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .da{
+      width: 800px;
+      min-height: 200px;
+      margin: 0 auto;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <!-- 头 -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Fluid jumbotron</h1>
+        <p class="lead">{{title}}</p>
+      </div>
+    </div>
+
+    <div class="da">
+      <ul>
+        {{each students}}
+        <li>{{$value.id}}:{{$value.name}}</li>
+        {{/each}}
+        
+      </ul>
+    </div>
+
+
+
+  </div>
+</body>
+</html>

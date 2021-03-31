@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<script>
+			$(function(){
+				//监听span的事件
+				$(".ad span").click(function(){
+					$(".ad").remove();
+				});
+				//执行广告的动画
+				//这里是垃圾写法
+//				$(".ad").slideDown(1000,function(){
+//					$(".ad").fadeOut(1000,function(){
+//						$(".ad").fadeIn(1000);
+//					})
+//				});
+//这里是好的写法
+	$(".ad").slideDown(1000).fadeOut(1000).fadeIn(1000);
+			});
+		</script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 400px;
+				height: 200px;
+			}
+			.ad{
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				margin-right: 2px;
+				display: none;
+				
+			}
+			.ad span{
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				text-align: center;
+				line-height: 30px;
+			}
+			.ad span:hover{
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ad">
+			<img src="img/20131025103117574.jpg" />
+			<span>X</span>
+		</div>
+	</body>
+</html>

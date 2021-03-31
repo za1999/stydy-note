@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+       <button @click="lang">浪起来</button>
+       <button @click="di">低调</button>
+       <h4>{{msg}}</h4>
+		</div>
+
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+                 msg:"猥琐发育，别浪~~~~~!",
+                 intervalID:null
+				},
+				methods:{
+					lang(){
+						//为了解决this指向问题
+						var hah = this;
+						//定时器，400ms一次
+						if(hah.intervalID!=null)return;
+						this.intervalID = setInterval(function(){
+							
+							//先提取字符串第一个字符,简单方法this.msg[0]也可以哦
+						//从第零个开始，截取一个 
+						var start = hah.msg.substring(0,1);
+						
+						//从第二开始，截取到尾部
+						var end = hah.msg.substring(1);
+							//再赋值
+							hah.msg = end+start;
+						},400);
+						
+							
+					},
+					di(){
+						 clearInterval(this.intervalID);
+						 this.intervalID = null;
+					}
+				}
+
+			});
+		</script>
+	</body>
+</html>

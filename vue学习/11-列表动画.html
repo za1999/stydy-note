@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<style>
+			    li {
+      border: 1px dashed #999;
+      margin: 5px;
+      line-height: 35px;
+      padding-left: 5px;
+      font-size: 12px;
+      width: 100%;
+    }
+
+    li:hover {
+      background-color: hotpink;
+      transition: all 0.8s ease;
+    }
+
+
+
+    .gg-enter,
+    .gg-leave-to {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+
+    .gg-enter-active,
+    .gg-leave-active {
+      transition: all 0.6s ease;
+    }
+
+    /* 下面的 .v-move 和 .v-leave-active 配合使用，能够实现列表后续的元素，渐渐地漂上来的效果 */
+    .gg-move {
+      transition: all 0.6s ease;
+    }
+    .gg-leave-active{
+      position: absolute;
+    }
+
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<label>
+					Id:
+					<input type="text" v-model="id"/>
+				</label>
+				<label>
+					Name:
+					<input type="text" v-model="name"/>
+				</label>
+				<input type="button" @click="add" value="添加"/>
+			</div>
+			<!--在实现列表过度的时候，如果要过度的用v-for出来的，不能用transition包裹，需要用transitionGroup包起来-->
+<!--appear添加入场效果-->
+		<!--直接把这东西当成ul，不设置transition-group默认为span-->
+			<transition-group appear tag="ul" name="gg">
+			<li v-for="(item,i) in list" :key="item.id" @click="del(i)" class="a">
+				{{item.id}}------{{item.name}}
+			</li>
+			</transition-group>
+		
+		</div>
+		
+		<script>
+			var app =new Vue({
+	         el:'#app',
+	      data:{
+	      	id:'',
+	      	name:'',
+		   list:[
+		   {id:1,name:'赵高'},
+		   {id:2,name:'秦桧'},
+		   {id:3,name:'严嵩'},
+		   {id:4,name:'魏忠贤'}
+		   ]
+	         },
+	         methods:{
+	         	add(){
+	         		this.list.push({id:this.id,name:this.name})
+	         		this.name = this.id = ''
+	         	},
+	         	del(i){
+	         		this.list.splice(i,1)
+	         		
+	         	}
+	         }
+});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--先监听文本框改变，如何做到？-->
+			<!--我们可以用@keyup，  @keyup 是按键松开的事件，当指定的按键松开会触发的事件。-->
+		<input type="text" v-model="firstname" @keyup="getfullname"/> +
+		<input type="text" v-model="lastname" @keyup="getfullname"/> =
+		<input type="text" v-model="fullname"/>
+		</div>
+		
+		<script>
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+	      	firstname:'',
+		   lastname:'',
+		   fullname:''
+	        },
+	         methods:{
+	         	getfullname(){
+	         		this.fullname = this.firstname+'-'+this.lastname
+	         	}
+	         }
+          });
+		</script>
+	</body>
+</html>

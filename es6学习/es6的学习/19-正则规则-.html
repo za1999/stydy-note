@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//正则里面不加引号，不管是啥类型，用户的可以
+			//边界符 ^(开始) $(结束)
+			var as = /abc/   //这个正则是只要有abc就行,必须都有，而且连在一起
+//			a = as.test('aebcd')
+//			console.log(a)
+var asc = /^abc/       //这个还要加个必须以abc开头
+//b = asc.test('vabc')
+//console.log(b)
+
+
+// 之前的/abc/表示有abc才行，必须都有，字符类：[]表示有一系列字符可以选择，只要匹配其中一个就行
+var sd = /[abc]/
+//console.log(sd.test('ag'))
+
+var sg = /^[abc]$/   //这么写只能写这三个里的一个，不能写其他的
+//console.log(sg.test('a'))
+
+
+
+   //这个/[a-z]/表示a到z有就行
+   var hg = /[a-z]/
+  // console.log(hg.test('s'))
+   // console.log(hg.test('A')) //大写就不行
+   
+   
+   //字符组合   /[a-zA-Z]/表示大小写都行                               /[a-zA-Z0-9_-]/这个是字母数字短横线下划线都可以
+   
+   //^这个写在[]里面代表取反，表示里面的不行！比如[^a-z]表示有小写a-z都不行
+   var ok = /[^a-z]/;
+   //console.log(ok.test('!'))
+   
+   
+   
+   
+   //量词符：设定某个模式出现的次数
+   //*表示可以出现0次或很多次
+   var fs = /^a*$/
+   //console.log(fs.test('aa'))  加之前这是不行的，现在是可以的
+   //console.log(fs.test('')) 0次都是可以的
+   
+   //  +表示一次或者很多次
+   
+   //？表示1||0 就是一次或者0次
+   
+   //{3}重复3次
+   
+   //{3，}3次或者更多
+   
+   //{3，16}大于等于3次，小于等于16次
+		</script>
+	</body>
+</html>

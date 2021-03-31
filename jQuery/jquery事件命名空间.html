@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			//事件命名空间，分辨相同条件事件哪个是哪个，只能用on那种
+			//在条件后加注释，比如下面的.1和.2
+			//用自动触发就可以只触发我们要的
+			$(function(){
+			$(".son").on("click.1",function(){
+				alert("第一个");
+			});
+		$(".son").on("click.2",function(){
+				alert("第二个");
+			});
+			$(".son").trigger("click.1")
+			});
+		</script>
+		<style type="text/css">
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">
+				
+			</div>
+		</div>
+		<a href="http://www.baidu.com">我是百度</a>
+		<form action="http://taobao.com" method="post">
+			<input type="text" name="" id="" value="" />
+			<input type="submit" name="" id="" value="提交" />
+		</form>
+	</body>
+</html>

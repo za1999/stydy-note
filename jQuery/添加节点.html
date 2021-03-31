@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<style></style>
+		<script>
+			$(function(){
+				$("button").click(function(){
+					//创建一个节点
+					var a = $("<li>新增的li</li>");
+					//添加节点
+					$("ul").append(a);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>添加节点</button>
+		<ul>
+			<li>我是第一个li</li>
+			<li>我是第二个li</li>
+			<li>我是第三个li</li>
+		</ul>
+	</body>
+</html>

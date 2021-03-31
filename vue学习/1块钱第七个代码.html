@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+	</head>
+	<body>
+		<div id="app" >
+      <p>{{message}}</p>
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:'#app',
+				data(){
+					return{
+						message:"这里是生命周期"
+						}
+				},
+				methods:{
+					reverse:function(){
+						this.message = this.message.split('').reverse().join('');
+					}
+				},
+				//钩子函数不用写在methods里面
+				created:function(){
+					console.log("这是created钩子函数")
+				}
+			})
+		</script>
+	</body>
+</html>

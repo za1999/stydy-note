@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<style type="text/css">
+			
+				*{
+					margin: 0;padding: 0;
+					list-style: none;
+				}
+				li{
+					margin-top: 10px;
+				}
+				.box{
+					width: 300px;
+					
+					margin: 50px auto;
+					border: 1px solid black;
+				}
+				.content{
+					width: 300px;
+					height: 200px;
+					clear: both;
+					display: none;
+				}
+			.content img{
+				width: 100px;
+				height: 120px;
+				float: left;
+			}
+			.content p{
+				width: 80px;
+				height: 120px;
+				float: right;
+				
+			}
+			.c .content{
+				display: block;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("li").mouseenter(function(){
+					$(this).addClass("c");
+				});
+				//监听移出
+				$("li").mouseleave(function(){
+					$(this).removeClass("c");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h1>电影排行</h1>
+			<ul>
+				<li ><span>1</span>电影名称<div class="content">
+					<img src="https://img.zcool.cn/community/01a3325953a731a8012193a32ddee9.jpg" />
+					<p>接到世界各地水果蛋糕的方式大苏打实打实上的</p>
+				
+				
+				
+				</div></li>
+				<li ><span>2</span>电影名称<div class="content">
+					<img src="https://img.zcool.cn/community/01a3325953a731a8012193a32ddee9.jpg" />
+					<p>接到世界各地水果蛋糕的方式大苏打实打实上的</p>
+				
+				
+				
+				</div></li>
+				<li ><span>3</span>电影名称<div class="content">
+					<img src="https://img.zcool.cn/community/01a3325953a731a8012193a32ddee9.jpg" />
+					<p>接到世界各地水果蛋糕的方式大苏打实打实上的</p>
+				
+				
+				
+				</div></li>
+				<li ><span>4</span>电影名称<div class="content">
+					<img src="https://img.zcool.cn/community/01a3325953a731a8012193a32ddee9.jpg" />
+					<p>接到世界各地水果蛋糕的方式大苏打实打实上的</p>
+				
+				
+				
+				</div></li>
+				<li ><span>5</span>电影名称<div class="content">
+					<img src="https://img.zcool.cn/community/01a3325953a731a8012193a32ddee9.jpg" />
+					<p>接到世界各地水果蛋糕的方式大苏打实打实上的</p>
+				
+				
+				
+				</div></li>
+			</ul>
+		</div>
+	</body>
+</html>

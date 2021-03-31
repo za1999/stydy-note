@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function test(){
+            let p = new Promise((resolve,reject)=>{
+                resolve("成功！")
+            })
+            let p2 = new Promise((resolve,reject)=>{
+                reject("失败！")
+            })
+            // 这里是接受promise对象的情况，且为成功
+            let res1 = await p;
+            console.log(res1)
+            // 这里是接受promise对象的情况，且为失败，我们需要用try...catch来处理才行啊
+            try {
+                let res2 = await p2;
+            } catch (error) {
+                // error值为reject的值
+                console.log(error)
+                
+            }
+            
+
+            // 接受值为非promise对象
+            let res3 = await 999;
+            console.log(res3)
+        }
+        test()
+    </script>
+</body>
+</html>

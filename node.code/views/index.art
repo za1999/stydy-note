@@ -1,0 +1,60 @@
+<!-- 今天遇到了新建一个html文件后!+tab 键补全无效。 
+    特此记录一下解决办法： 1-让.html 文件处于编辑状态，
+    然后按下快捷键  ctrl+shift+p 2-在输入框输入change language mode，
+    下面会有好几个选项，找到   “.html”的配置文件关联... ； 
+    3- 选择成HTML就好了； ———————————————— 
+  <p>模板引擎中有条件判断的存在以{{if 条件}}开始/{{/if}}结束,中间还可以有else if 条件</p>
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{}}里面可以做一些加减法，三目运算什么的</p>
+    <p>一般来说模板引擎是不解析标签的，但是在前面加@就可了</p>
+    <p>{{1+1}}</p>
+    <p>{{1+1==2?"相等":"不相等"}}</p>
+    <div>{{name}}</div>
+    <div>{{age}}</div>
+    <div>{{con}}</div>
+    <div>{{@con}}</div>
+
+
+  
+
+
+    {{if age>18}}
+好兄弟去网吧
+{{else if age<18}}
+好兄弟不能去网吧
+{{else}}
+你是什么东西啊
+    {{/if}}
+
+
+
+
+    <p>下面是模板引擎的循环</p>
+    {{each arr}}
+    {{$index}}:{{$value}}
+    {{/each}}
+
+
+    <p>下面是子模板，和vue组件差不多，你懂的</p>
+    {{include './子模板.art'}}
+
+
+    <p>下面是模板继承，就是一个模板，留一些位置给其他用的填充，子页面先继承再填充，因为我很懒，所以没写</p>
+
+
+    <p>下面是模板配置，模板中也是可以用方法的，要先导入</p>
+</body>
+</html>

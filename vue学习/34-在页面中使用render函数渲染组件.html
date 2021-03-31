@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		
+		</div>
+		
+		<script>
+var login = {
+				template:'<h1>这是登录组件</h1>'
+			}
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	          },
+	          render:function(createElements)
+	          //参数名字随便写，这个参数是一个方法，调用它，能够把指定的组件渲染为html结构
+	          {
+//	          	var html = createElements(login);
+//	          	return html;
+
+                //或者
+                return createElements(login);
+                //返回结果会替换页面中el指定的那个容器，这里是就是把那个id为app的div换成了login组件，他会把里面的东西清空只有他，components就不会
+	          }
+          });
+		</script>
+	</body>
+</html>

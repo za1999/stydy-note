@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var am = 100;
+			
+			if(1){
+				console.log(am);
+				let am = 20;
+				
+				//这样写会报错，因为let声明的变量跟这个大括号关联了，这就是暂时性死区，保证不受外界影响
+			}
+		</script>
+	</body>
+</html>

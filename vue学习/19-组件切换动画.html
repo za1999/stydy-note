@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+		<style>
+			.v-enter,
+			.v-leave-to{
+				opacity: 0;
+				transform: translateX(150px);
+			}
+			.v-enter-active,
+			.v-leave-active{
+				transition: all 0.5s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+				<a href="" @click.prevent="comName='login'">登录</a>
+			<a href=""  @click.prevent="comName='register'">注册</a>
+			<!--这个元素是Vue提供的，是一个占位符，is里面写要显示的组件的名称，名称用单引号包起来,不打引号就是变量-->
+      <!--<component :is="'register'"></component>-->
+      <!--mode="out-in"是一种格式，表示先出去再进来-->
+      <transition mode="out-in">
+      	 <component :is="comName"></component>
+      </transition>
+     
+		</div>
+		
+		<script>
+			Vue.component('login',{
+				template:'<h3>登录组件</h3>'
+			})
+			Vue.component('register',{
+				template:'<h3>注册组件</h3>'
+			})
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+	      	//当前显示组件的名称
+		comName:'login'
+	          }
+          });
+		</script>
+	</body>
+</html>

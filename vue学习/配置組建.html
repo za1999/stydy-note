@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+		<style>
+		.lik{
+		background: yellow;
+		}
+		</style>
+	</head>
+	<body>
+	<div id="app">
+	<like></like>
+	</div>
+	<template id="ds">
+	<button @click="toggle" :class="{lik:liked}">👍{{like_count}}</button>
+	</template>
+	
+	<script>
+	Vue.component('like',{
+	//添加一個叫lik的屬性，在liked為true的時候，點完讚liked會變成true
+	template:'#ds',
+	data:function(){
+	return {
+	like_count:10,
+	liked:false
+	}
+	},
+	methods:{
+	toggle:function(){
+	//判斷是否點過讚,如果為false執行，不然else
+	 if(!this.liked){this.like_count++;
+	
+	 }else{
+	 this.like_count--;
+	 }
+	 this.liked=!this.liked;
+	}
+	}
+	})
+	var app = new Vue({
+	el:"#app"
+	});
+	</script>
+	</body>
+</html>

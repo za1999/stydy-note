@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		<login></login>
+		</div>
+		<template id="tmp2">
+		<div>
+			<h1>无锡哇哈哈</h1>
+		</div>	
+		</template>
+		<script>
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	          },
+	          components:{
+	          	login:{
+	          		template:'#tmp2'
+	          	}
+	          }
+          });
+		</script>
+	</body>
+</html>

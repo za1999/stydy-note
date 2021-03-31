@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<!--组建如果在vue外面，各个vue都可以用，写在里面只有那个vue可以用-->
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<alert></alert>
+
+		</div>
+		<div id="app2">
+			<alert></alert>
+		</div>
+		<div id="app3">
+			<hah></hah>
+		</div>
+		<script>
+			Vue.component('alert', {
+				template: '<button @click="onclick">弹走鱼尾纹</button>',
+				methods: {
+					onclick: function() {
+						alert("999违抗零");
+					}
+				}
+
+			});
+			var app = new Vue({
+				el: '#app',
+				data: {
+
+				}
+			});
+			var app = new Vue({
+				el: '#app2',
+				data: {
+
+				}
+			});
+			var app = new Vue({
+				el: '#app3',
+				data: {
+
+				},
+				components: {
+					hah: {
+						template: '<button @click="onclick">弹走光头</button>',
+						methods: {
+							onclick: function() {
+								alert("99范德萨范德萨");
+							}
+						}
+					}
+				}
+			});
+			
+			
+			//你甚至可以在外面定義一個組建，然後引用他
+//			var abc = {
+//				template: '<button @click="onclick">弹走光头</button>',
+//						methods: {
+//							onclick: function() {
+//								alert("99范德萨范德萨");
+//							}
+//						}
+//			}
+//			然後再vue裏面這莫寫
+//			components:{
+//			組建名:外面創建的組建名,這裏是abc
+//			}
+		</script>
+	</body>
+
+</html>

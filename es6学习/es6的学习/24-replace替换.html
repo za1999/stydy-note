@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--replace()方法可以替换字符串操作，用来替换的参数可以是一个字符串或是一个正则表达式-->
+	</body>
+	<script>
+		var str = 'andy和red'
+		//把andy替换为baby
+		//replace只能替换第一个满足的字符串，要改掉全部满足的需要加正则参数，比如g
+		//例子:把所有激情变成**   replace(/激情/g,'**')
+		//例子:把所有激情和gay变成**   replace(/激情|gay/g,'**')
+		var newstr  =str.replace("andy",'baby')
+		console.log(str)
+		console.log(newstr)
+		//正则的参数                 /正则表达式/[switch]   switch表示修饰符，按照什么模式匹配，有三种值
+		//g全局匹配      i忽略大小写             gi全局匹配+忽略大小写
+	</script>
+</html>

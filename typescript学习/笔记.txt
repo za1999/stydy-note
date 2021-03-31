@@ -1,0 +1,209 @@
+typescript是js的超集，js有的它全都有，它有的js不一定有
+ts完全兼容js代码，在ts里随便写js代码没有问题的亲
+
+
+typescript为js添加了类型系统
+比如这里定义一个数字
+let age:number = 8
+
+
+要想要node.js和浏览器识别ts（typescript）需要安装解析ts的工具包,这个包提供了TSC命令，帮助转译
+
+npm i -g typescript    必须全局安装
+
+
+ts文件后缀是.ts
+
+
+执行ts代码分为两步在node中
+1.tsc 文件名（比如hello.ts）   然后回车
+
+此时会生成一个同名的js文件
+
+2.运行这个js文件
+
+
+
+这样比较麻烦还需要两次，所以我们可以用ts-node包，直接在node.js中来运行ts代码
+
+
+安装npm i -g ts-node(之前那个也要装哦)
+
+安装完后我们用ts-node来运行代码
+
+
+
+
+如果变量的声明和赋值是同时进行的，ts可以自动对变量进行类型检测
+比如
+let x = false；
+ts会自动将它设为boolean类型
+
+
+不仅可以给参数加类型还可以给函数返回值加类型，比如,这样返回值就是数字类型了，设置为void代表没有返回值（返回值为空），设置为never表示永远不会有返回结果
+function test():number{
+}
+
+
+可以用  | 来连接多个类型，叫联合类型
+比如 let test = number | string；
+这样之后赋值给number或者string类型都是可以的
+有种类型叫any，可以是任何类型
+
+如果只定义不赋值也不设置类型，那么会获得隐式any类型，和any一样
+比如 let test;
+
+
+还有种类型叫unknown，叫未知类型，也可以随意赋值，实际上就是一个类型安全的any，但是unknown类型的变量不能直接赋值给其它类型的变量，但是any可以
+
+有方法可以让unknown给其它类型赋值
+类型断言，直接改变类型，可以这么写 a as string，也可以这么写<string>a,都是一样的
+var e:unknown;
+var s:string;
+var x:string;
+e=10;
+s=e as string;
+x=e;  //这个x依旧无法正常赋值
+console.log(typeof e)
+直接说e是string类型,但是e本身还是没有变的
+
+
+let a:{name?:string}
+这个问号表示这个属性是可选的，如果没有就必须要填
+
+let b :{name:string,[变量名:string]:any}
+如果没有[变量名（随便填无所谓）:类型]:any    就只能有一个那么属性，string表示string类型变量名，any表示值为任意类型
+
+
+
+
+let a:number[];
+表示一个都是number值的数组
+
+
+let b[number,string]表示创建一个数组第一个值是number，第二个是字符串
+元组:确定了类型和个数的数组叫元组
+
+
+在几个值中间去选的值，我们可以用枚举
+enum 枚举名字{
+one,
+two=3
+}
+你可以给他们赋值也可以不去赋值
+名字.one===3
+名字[3]===two
+大概就是这个用法，你不给值其实会默认给值，规则可以百度一下
+
+
+
+let j ：{name:string} & {age:number}
+
+表示j里面的name是string，age是number
+j = {name:"弟弟",age:80}
+
+
+let k:1|2;
+k的值是1或者2
+
+类型别名
+type dd = string;
+let x:dd;
+表示x是string类型了
+这样也行
+type dx = 1|2|3；
+这样比较长我们就这样写了
+
+
+之前不是下了tsc吗，命令行直接输入tsc就能把所有ts文件编译成js，但是需要一个tsc配置文件才可以，里面什么都没有也行
+
+以abstract开头的类是抽象类，不能创建对象，就是专门被用来继承的
+以abstract开头的方法是抽象方法
+抽象方法必须写在抽象类中，子类必须把抽象方法重写
+抽象方法没有实体，这样写abstract   test():void;
+
+
+
+接口，用来定义一个类或者对象的结构
+interface 接口名字{
+name:string;
+age:number;
+}
+用法跟那个类名别名差不多
+接口用来定义一个类中应该有哪些属性和方法，同时也可以当类型声明来使用
+let x:接口名字 = {
+name:"张三",
+age:99
+}
+对象类型(别名)不能重复声明，因为两个冲突了，但是接口可以声明多个名字一样的，它们会组合起来
+
+
+接口可以在创建类时限制类的结构
+接口里的东西不能有实际的值
+
+interface test{
+name:string;
+sayhello():void;
+}
+
+在类上使用接口
+class 类名 implements 接口名字{
+
+}
+接口js没有
+
+
+
+
+
+属性任意修改会让数据变得不安全
+ts可以在属性前添加属性的修饰符
+什么public（公开）         static（静态资源修饰符）     private（私有属性）   protected（受保护的）
+
+
+在constructor里面这么写可以相当于在类中定义属性
+
+constructor(public a:string){
+}
+这样就定好了，类中有个属性a，公开的字符串类型，构造函数直接传值就是，其它的步骤不需要写了
+
+
+
+
+
+
+泛型
+
+在定义函数或者类时遇到不确定类型的就可以使用泛型
+
+加入我们有个泛型叫T，这名字你随便取一个
+//这里有个点，既然你定义了这个返回值为T类型，那么就必须返回一个T类型才行，直接返回其它值是不可以的
+function test<T>(a:T):T{
+
+}
+那这样参数和返回值都可以是任意类型了
+
+调用函数指定类型，这样可以给你定义的泛型定好
+这里我们调用test函数
+test<string>("你好")
+
+
+
+function test<T>(a:T):T{
+    return a;
+}
+let x = test<string>("你好")
+console.log(x)
+这种不会报错，返回值也是T类型，因为a就是T类型
+泛型可以指定多个
+function test<T>(a:T,b:S):T{
+    
+}
+
+泛型还可以配合接口使用，但是自己百度吧
+
+
+
+
+
+接口可以继承接口！

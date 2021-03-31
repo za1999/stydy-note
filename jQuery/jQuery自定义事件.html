@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			//自定义事件，官方没有的，自己取名字的那种,自定义事件只能用on那种响应
+			$(".son").on("hhh",function(){
+				alert("我的自定义事件");
+			});
+		$(".son").trigger("hhh");
+			});
+		</script>
+		<style type="text/css">
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">
+				
+			</div>
+		</div>
+		<a href="http://www.baidu.com">我是百度</a>
+		<form action="http://taobao.com" method="post">
+			<input type="text" name="" id="" value="" />
+			<input type="submit" name="" id="" value="提交" />
+		</form>
+	</body>
+</html>

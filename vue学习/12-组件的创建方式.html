@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+				<div id="app">
+					<mycom1></mycom1>
+					<mycom2></mycom2>
+		        </div>
+		
+		<script>
+			//1.1公用组件,使用Vue.extend来创建全局的Vue组件
+			var com1 = Vue.extend({
+				template:'<h3>这里是Vue.extend创建的组件</h3>'
+			})
+			//1.2使用Vue.component('组件的名称',创建出的组件模板对象)
+			Vue.component('mycom1',com1)
+			Vue.component('mycom2',{
+				template:'<h3>组件第二个</h3>'
+			})
+			
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	          }
+          });
+		</script>
+	</body>
+</html>

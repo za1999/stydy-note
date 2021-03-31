@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--惰性更新，鼠标脱离后更新，还有很多，比如.trim去掉前后所有空格,还有.number转换为数字-->
+			<input v-model.lazy="name"  type="text "/>
+			{{name}}
+		</div>
+		
+		<script type="text/javascript" src="new_file.js" ></script>
+	</body>
+</html>

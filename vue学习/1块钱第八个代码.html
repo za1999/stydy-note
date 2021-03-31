@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+	</head>
+	<body>
+		<!--可以在Vue对象中使用自定义组件-->
+		<div id="app" >
+      <p>{{message}}</p>
+     <btn></btn>
+		</div>
+		<script type="text/javascript">
+			//组件也是一个Vue对象，所以之前的data,methods,钩子函数都是可以用的
+			Vue.component('btn',{
+				data(){
+					return {
+						count:0
+					}
+				},
+				template:'<button>{{count}}</button>'
+			})
+			var app = new Vue({
+				el:'#app',
+				data(){
+					return{
+						message:"这里是生命周期"
+						}
+				},
+				//钩子函数不用写在methods里面
+				created:function(){
+					console.log("这是created钩子函数")
+				}
+			})
+		</script>
+	</body>
+</html>

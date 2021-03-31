@@ -1,0 +1,14 @@
+html,body{
+    height:100%;
+    width:100%;
+}
+
+.a{
+    font-size: 40px;
+    color: yellow;
+}
+.b{
+    height: 200px;
+    width: 200px;
+    background-image: url('./x.jpg');
+}

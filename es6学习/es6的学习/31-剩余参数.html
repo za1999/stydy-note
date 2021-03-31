@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>ES6剩余参数语法允许我们将一个不定数量参数表示为一个数组</h1>
+		<h1>剩余参数还可以和解构配合使用，参数比变量多就解决了</h1>
+	</body>
+	<script>
+		//点只能三个
+		function sum(first,...args){
+			console.log(first); //10
+			console.log(args);  //[20,30]
+		}
+		sum(10,20,30)
+	</script>
+</html>

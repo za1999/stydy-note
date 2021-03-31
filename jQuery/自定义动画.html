@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-top: 10px;
+			}
+			.two{
+				background: blue;
+			}
+		</style>
+				<script>
+					$(function(){
+						$("button").eq(0).click(function(){
+							//操作属性既是操作标签的属性
+							//自定义动画animate(),可以有3个参数，也可以有四个参数
+							//三个的,对象，时间，回调函数
+							$(".one").animate({marginLeft:500},1000,function(){
+								
+							})
+							//四个的是对象，时间，速度（默认是缓动，即快慢快），回调函数
+							$(".two").animate({marginLeft:500},1000,"linear",function(){
+								
+							})
+						});
+						
+							$("button").eq(1).click(function(){
+							//累加即是在以前基础上增加
+							$(".one").stop();
+							$(".one").animate({
+								//在以前的基础上再加100
+								width:"+=100"
+							},1000,function(){
+								
+							});
+						});
+							$("button").eq(2).click(function(){
+								$(".one").animate({
+								//取一些关键字，比如这里的hide，就会隐藏，还有toggle（有变无，无变有）
+//								width:"hide"
+width:"toggle"
+							},1000,function(){
+								
+							});
+						});
+					});
+				</script>
+	</head>
+	<body>
+		<button>操作属性</button>
+		<button>累加属性</button>
+		<button>关键字</button>
+		<div class="one">
+			
+		</div>
+		<div class="two">
+			
+		</div>
+	</body>
+</html>

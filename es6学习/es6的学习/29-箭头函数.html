@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>箭头函数是用来简化函数定义语法的</h1>
+		<h3>小括号用来装参数</h3>
+		<h1>如果函数体只有一句代码，且执行结果就是返回值，可以省略大括号</h1>
+		<h1>如果形参只有一个，小括号也可以省略！！！！！！！！！</h1>
+	</body>
+	<script>
+		const fn = (a)=>{
+			console.log(123+a)
+		}
+		fn(9)    //结果是123+9 = 132
+		
+		const g = (num1,num2)  =>   num1+num2
+		console.log(g(1,2))  //结果为3
+		
+		const xs = num3 => alert(num3)
+		xs(999)
+	</script>
+</html>

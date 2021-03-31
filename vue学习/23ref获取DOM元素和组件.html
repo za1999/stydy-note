@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="获取元素" @click="getelement"/>
+		<h3 ref="myh3">计量技术对抗哈啥陆海空啥都会</h3>
+		<hr />
+		<login ref='mylogin'></login>
+		</div>
+		
+		<script>
+			var login = {
+				template:'<h1>登录组件</h1>',
+				data(){
+					return {
+						msg:"组件的数据"
+					}
+				},
+				methods:{
+					show(){
+						console.log('调用了组件的方法')
+					}
+				}
+				
+			}
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		
+	         },
+	         methods:{
+	         	getelement(){
+	         		//获取vm里面的$refs的myh3的innerText
+	         		//console.log(this.$refs.myh3.innerText);
+	         		
+	         		//这里修改
+	         		//this.$refs.myh3.innerText = '好看了'
+	         		
+	         		//组件也可以引用
+	         		console.log(this.$refs.mylogin.msg)
+	         		this.$refs.mylogin.show()
+	         	}
+	         },
+	         components:{
+	         	login
+	         }
+          });
+		</script>
+	</body>
+</html>

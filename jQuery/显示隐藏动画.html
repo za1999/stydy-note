@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background: red;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+//					$("div").css("display","block");
+/*show和hide和toggle可以加回调函数*/
+$("div").show(1000);
+				});
+					$("button").eq(1).click(function(){
+//					$("div").css("display","none");
+$("div").hide(1000);
+				});
+					$("button").eq(2).click(function(){
+					$("div").toggle(1000);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>显示</button>
+		<button>隐藏</button>
+		<button>切换</button>
+		<div class="">
+			
+		</div>
+	</body>
+</html>

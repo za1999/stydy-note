@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.0.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 300px;
+				height: 161px;
+			}
+			div{
+				height: 161px;
+				width: 600px;
+				margin: 100px auto;
+				border: 1px solid #000;
+				overflow: hidden;
+			}
+			ul{
+				list-style: none;
+				width: 1800px;
+				height: 161px;
+				background: rgba(255,0,0,0.5);
+				
+			}
+			ul li{
+				float: left;
+				background: black;
+			}
+		</style>
+		<script>
+			$(function(){
+				//定义偏移量
+				var offset=0;
+				//让图片滚起来
+				var timer;
+				function autoplay(){
+				timer = setInterval(function(){
+					offset-=10;
+					if(offset<-1200){
+						offset=0;
+					}
+					$("ul").css("margin-left",offset)
+				},50);
+				}
+				autoplay();
+				//监听移入移出,hover可以同时监听移入移出，第一个移入，第二个移出
+				$("li").hover(function(){
+					//移入暂停动画，这里暂停定时器
+					clearInterval(timer);
+					//给非当前选中添加效果
+					$(this).siblings().fadeTo(100,0.3);
+					
+				},function(){
+					//继续滚动,这里再调用滚动函数autoplay
+					$("li").fadeTo(100,1);
+					autoplay();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="img/20131025103117574.jpg"/></li>
+				<li><img src="img/2015524224513799.jpg"/></li>
+				<li><img src="img/761732a12df343ca9360f549721fefa1.jpeg"/></li>
+				<li><img src="img/e0b72a1ec7794070b1ed283c8bd5b45b.jpeg"/></li>
+					<li><img src="img/20131025103117574.jpg"/></li>
+				<li><img src="img/2015524224513799.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

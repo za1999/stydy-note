@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>Array的扩展方法</h1>
+		<h1>扩展运算符(展开语法)</h1>
+		<h4>展开运算符可以将数组或者对象转化为用逗号分隔的参数序列</h4>
+		<h1>扩展运算符还可以应用于合并数组</h1>
+		<h1>还可以把类数组或者可遍历对象转换为真正的数组</h1>
+		<h1>构造函数方法Array.from也可以把类数组或者可遍历对象转换为真正的数组</h1>
+		<h4>　　类数组定义
+
+　　1）拥有length属性，其它属性（索引）为非负整数（对象中的索引会被当做字符串来处理）；
+      2）不具有数组所具有的方法；</h4>
+      
+      
+	</body>
+	<script>
+		let ary = [1,2,3];
+		//...ary 就为1,2,3
+		//但是console.log会把逗号当成方法的参数分割符号，会被抹去
+		//console.log(...ary)
+		
+		let ary2  =  ["a","b","c"]
+		//console.log(...ary2)
+		
+		
+		
+		
+		//合并数组方法1
+		let ary3 = [1,2,3]
+		let ary4 = [4,5,6]
+		let ary5 = [...ary3,...ary4]
+		//console.log(ary5)  //变成了一个六位数组！
+		//合并第二种方法
+		ary3.push(...ary4)
+		console.log(ary3)
+		
+		
+		
+		//转化为真数组例子
+		//var 新数组名字 = [...假数组名字]
+		
+		//用Array.from转化真正数组
+		//let 新数组名字 = Array.from(假数组名字，（这里还可以放第二个参数，是一个函数，处理数组数据，比如item => item*2,把数组里面的内容都乘以2）)
+	</script>
+</html>

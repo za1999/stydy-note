@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+		<link rel="stylesheet" href="animate.css" />
+		<!--入场bounceIn，离场bounceOut-->
+	</head>
+
+	<body>
+		<div id="app">
+			<button @click="flag=!flag">我先牛</button>
+			<!--时间设置没有用-->
+  <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" :duration="{enter:10000,leave:10000}">
+  	<h3 v-if="flag" >无锡一个h3</h3>
+  </transition>
+		</div>
+
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					flag:false
+				}
+			});
+		</script>
+	</body>
+
+</html>

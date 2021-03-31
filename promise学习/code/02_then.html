@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+  let p = new Promise((resolve,reject)=>{
+      resolve('ok')
+      
+  })
+  let res = p.then((value)=>{
+    //throw '代码很垃圾啊亲！'
+     return 99
+    //console.log(9999)
+
+  },(reason)=>{
+      //throw "确实"
+      //return 99
+
+  })
+  let res2 = res.then((value)=>{
+console.log("如果我没写错的话，打印值为99！:"+value)
+  })
+//   .catch((reason)=>{
+
+//   })
+console.log(res2)
+
+  // 你then这么长一串，中间要是出现了reject方法，我们可以在最后来个.catch来收集这些
+//   比如上面这样，reason的值为上面调用reject的参数值
+
+//   这里可以看出then方法返回的值是一个promise对象
+// 如果在回调函数里有抛出异常那个返回的promise对象状态为reject，我这里
+// 状态fulfilled就是成功
+// 上面内容两个回调均成立
+// 因为返回的是promise对象，我们可以继续then下去！
+// 就算没有返回值也会以成功的状态一直返回下去，状态为成功，只要你一直.then
+
+  console.log(res)
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Star(uname,age){
+				this.uname = uname;
+				this.age = age;
+			}
+			Star.prototype.sing = function(){
+				console.log("我会唱歌")
+			}
+			var ldh = new Star('刘德华',20);
+			ldh.sex = "男";
+			//如果ldh没有sex这个属性，就会去Star.prototype里面去找，找不到就会去Object.prototype里去找。都有就就近原则。
+			console.log(ldh.sex)
+		</script>
+	</body>
+</html>

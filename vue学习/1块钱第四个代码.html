@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.active{
+				color: yellow;
+			}
+			.error{
+				color: orange;
+			}
+			.bg{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" >
+			<!--类名是active，取决于isactive-->
+			<p :class="{active:isactive}">
+				你好啊
+			</p>
+			<!--支持三目运算符号-->
+			<p :class="isactive?active:error">
+				网不好
+			</p>
+			<!--支持数组-->
+			<p :class="items">
+				我爱你啊
+			</p>
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:'#app',
+				data(){
+					return{
+						message:"hello Vue",
+						isactive:false,
+						active:"active",
+						error:"error",
+						items:['error','bg']
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

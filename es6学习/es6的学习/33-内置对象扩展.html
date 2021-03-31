@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>实例方法：find()用于找出一个符合条件的数组成员，如果没有找到就返回undefined</h1>
+		<h1>findIndex()找出第一个符合条件的数组成员的index，如果没找到返回-1</h1>
+		<h1>includes()方法寻找数组的值，返回布尔值，有就true，没有就false</h1>
+		<script>
+			let ary = [{
+				id:1,
+				name:'张三'
+			},
+			{
+				id:2,
+				name:'李四'
+			}
+			];
+			//item代表值，index代表索引，这里没有用index
+			let target = ary.find((item,index)=>item.id==2)
+			//console.log(target)
+			
+			
+			let ar = [1,5,10,15]
+			let index = ar.findIndex(function(value,index){
+				return value>9
+			})
+			//console.log(index)
+			
+			//console.log([1,2,3].includes(3))   //为true
+			//console.log([1,2,3].includes(4))   //为false
+		</script>
+	</body>
+</html>

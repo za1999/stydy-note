@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--父组件可以在引用子组件的时候，用属性绑定v-bind把需要传递给子组件的值给子组件-->
+			<!--这里绑定一个自定义属性，名字自己取的-->
+	   <com1 v-bind:pmsg="msg"></com1>
+		</div>
+		
+		<script>
+	      var app =new Vue({
+	      el:'#app',
+	      data:{
+		msg:'父组件中的数据'
+	          },
+	          //子组件默认我也发访问父组件data里面的值和methods里的方法
+	          components:{
+	          	com1:{
+	          		template:'<h1>这里是子组件-----{{pmsg}}</h1>',
+	          		//父组件传递的值定义一下 
+	          		//props里的数据都只可读
+	          		props:['pmsg']
+	          	}
+	          }
+          });
+		</script>
+	</body>
+</html>

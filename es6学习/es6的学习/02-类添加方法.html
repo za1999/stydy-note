@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//创建一个明星类
+			class start {
+				//这是构造函数，new就会执行的函数，还会把我们生成的实例返回过来，你不写它也会自动生成
+				constructor(uname){
+					this.uname = uname;
+				}
+				//下面是一个叫sing的方法
+				sing(song){
+					console.log(this.uname+'唱'+song);
+				}
+			}
+			
+			//利用类创建对象     new
+			var ldh = new start('刘德华');
+			console.log(ldh.uname)
+			ldh.sing('冰雨');
+		</script>
+	</body>
+</html>
