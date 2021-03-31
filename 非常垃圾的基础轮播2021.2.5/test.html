@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var list = document.getElementsByClassName("imglist")[0];
+            var len = document.querySelectorAll(".imglist li").length
+             list.style.width = len*300+"px"
+          
+
+            //  设置默认选中
+            var alla = document.getElementsByTagName("a");
+            var index = 0;
+            alla[index].style.backgroundColor = "orange"
+
+            
+            function gun(){
+                var le = 0
+                // 设置定时器顺便看下它的定时编号
+            var s = setInterval(function(){
+                le-=10;
+                // console.log(Math.abs(le))
+                // console.log(parseInt(list.style.width))
+                if(Math.abs(le)>=parseInt(list.style.width)-300){
+                  le = 0;
+                }
+                if(Math.abs(le)%300==0){
+                    let x = Math.abs(le)/300;
+                    for(var i = 0;i<alla.length;i++){
+                        alla[i].style.backgroundColor = "honeydew"
+                    }
+                    alla[x].style.backgroundColor = "orange"
+
+                }
+                 list.style.left = le+"px";
+                
+            },100)
+            console.log(s)
+            }
+            // 为所有的圆点设置点击事件
+            var z = 1;
+            for(var i = 0;i<alla.length;i++){
+                // 给每个添加自己的编号
+                alla[i].num = i;
+                alla[i].onclick = function(){
+                    // 改变选中
+                    for(var i = 0;i<alla.length;i++){
+                        alla[i].style.backgroundColor = "honeydew"
+                    }
+                    alla[this.num].style.backgroundColor = "orange"
+                    // 改变图片
+                    num = this.num*300;
+                    list.style.left = "-"+num+"px";
+                    // 点击时清除定时编号
+                    clearInterval(z)
+                    // 定时编号会变这里再换一下
+                    z+=2;
+                    // 点了给你看一秒继续滚动
+                    setTimeout(() => {
+                        gun()
+                    }, 1000);
+                }
+                
+            }
+            // 设置自动
+            gun();
+            
+           
+        }
+    </script>
+    <style>
+        *{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #outer{
+            width: 300px;
+            height: 200px;
+            margin: 100px auto 100px;
+            border: 4px solid greenyellow;
+            background-color: blue;
+            overflow: hidden;
+            position: relative;
+        }
+        .imglist img{
+            width: 300px;
+            height: 200px;
+            float: left;
+            background-color: white;
+        }
+        .imglist{
+            /* width: 900px; */
+            position: absolute;
+            left: 0;
+        }
+        .nav{
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            
+        }
+        .nav a{
+           float: left;
+            width: 10px;
+            height: 10px;
+            border: 1px solid gray;
+            background-color: honeydew;
+            border-radius: 50%;
+            margin-left: 5px;
+            opacity: 0.6;
+            text-align: center;
+            
+                    }
+                    .nav a:hover{
+                        background-color: orange;
+                    }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">非常垃圾，不过你懂我的意思就行，优化再说吧</h1>
+    <div id="outer">
+        <ul class="imglist">
+            <li><img src="./imgs/1.png" alt=""></li>
+            <li><img src="./imgs/2.png" alt=""></li>
+            <li><img src="./imgs/3.png" alt=""></li>
+        </ul>
+        <div class="nav">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>
